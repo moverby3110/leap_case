@@ -1,0 +1,8 @@
+order_id;customer_id;order_date;amount;status
+1001;1;2024-06-01;249.99;completed
+1002;2;2024-06-02;89.50;completed
+1003;1;2024-06-05;120.00;refunded
+1004;3;2024-06-05;560.75;completed
+1005;4;2024-06-10;45.00;pending
+1006;5;2024-06-12;999.99;completed
+1007;2;2024-06-12;15.25;completed

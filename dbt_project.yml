@@ -1,0 +1,16 @@
+name: leap_snowflake
+version: "1.0.0"
+config-version: 2
+
+profile: leap_snowflake
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  leap_snowflake:
+    +materialized: table
+    +database: DEV
+    +schema: FINAL
+
+

@@ -1,0 +1,6 @@
+customer_id;email;name;country;created_at
+1;alice@example.com;Alice Jensen;DK;2024-01-10 09:15:00
+2;bob@example.com;Bob Larsen;SE;2024-02-03 14:22:00
+3;carla@example.com;Carla Nielsen;NO;2024-03-18 11:05:00
+4;david@example.com;David Hansen;DK;2024-04-25 16:40:00
+5;eva@example.com;Eva Sørensen;DE;2024-05-12 08:55:00

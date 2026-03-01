@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: dev_public
+    database: DEV
+    schema: PUBLIC
+
+    tables:
+      - name: customers
+        identifier: CUSTOMERS
+        description: "Source customers table in DEV.PUBLIC"
+        columns:
+          - name: CUSTOMER_ID
+            description: "Primary key of customers"
+            tests:
+              - not_null
+          - name: EMAIL
+            description: "Customer email"
+            tests:
+              - not_null
+
+      - name: orders
+        identifier: ORDERS
+        description: "Source orders table in DEV.PUBLIC"
+        columns:
+          - name: ORDER_ID
+            description: "Primary key of orders"
+            tests:
+              - not_null
+              - unique
+
+          - name: CUSTOMER_ID
+            description: "Foreign key to customers.customer_id"
+            tests:
+              - not_null
+              - relationships:
+                  to: source('dev_public', 'customers')
+                  field: CUSTOMER_ID
+
+          - name: AMOUNT
+            description: "Order amount; should be > 0"
+            # Custom test is implemented as a data test in tests/assert_positive_amount.sql
+
