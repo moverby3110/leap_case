@@ -85,7 +85,7 @@ resource "snowflake_grant_privileges_to_account_role" "dev_all_existing_schemas"
 }
 
 ########################################
-# dbt Cloud minimal setup
+# dbt Cloud setup
 ########################################
 
 resource "dbtcloud_project" "dev_project" {
@@ -120,6 +120,14 @@ resource "dbtcloud_environment" "dev" {
   project_id    = dbtcloud_project.dev_project.id
   name          = "Development"
   type          = "deployment"
+  connection_id = dbtcloud_global_connection.snowflake_dev.id
+  credential_id = dbtcloud_snowflake_credential.dev.credential_id
+}
+
+resource "dbtcloud_environment" "dev2" {
+  project_id    = dbtcloud_project.dev_project.id
+  name          = "dev"
+  type          = "development"
   connection_id = dbtcloud_global_connection.snowflake_dev.id
   credential_id = dbtcloud_snowflake_credential.dev.credential_id
 }
